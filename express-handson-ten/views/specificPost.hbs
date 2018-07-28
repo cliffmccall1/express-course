@@ -1,0 +1,44 @@
+<script>
+    function onSubmit() {
+
+        const postTitle = document.getElementById('postTitle').value;
+        const postBody = document.getElementById('postBody').value;
+
+        $.ajax({
+            url: '{{ PostId }}',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ postTitle: postTitle, postBody: postBody }),
+            method: 'PUT', complete: () => window.location.reload()
+        })
+    }
+    function onDelete() {
+        $.ajax({
+            url: '{{PostId}}/delete',
+            method: 'DELETE', complete: () => window.location = "/users/profile/{{UserId}}"
+        })
+    }
+</script>
+<div class="login">
+    <h1>{{PostTitle}}</h1>
+    <h2>Details: {{PostBody}}</h2>
+
+    <form onsubmit="onSubmit(); return false">
+        <div>
+            <label for="name">Post Title: </label>
+            <input type="text" name="posttitle" id="postTitle" value="{{PostTitle}}">
+        </div>
+        <div>
+            <label for="name">Post Details: </label>
+            <input type="text" name="postBody" id="postBody" value="{{PostBody}}">
+        </div>
+        <div>
+            <button type="submit" id="submitButton">Update Post</button>
+        </div>
+    </form>
+    <div>
+        <button onclick="onDelete()" id="deleteButton">Delete Post </button>
+    </div>
+    <a href="/users/profile/{{UserId}}">
+        <button>Back To Profile</button>
+    </a>
+</div>

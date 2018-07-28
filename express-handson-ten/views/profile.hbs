@@ -1,0 +1,41 @@
+<div class="login">
+    <div>
+        <h1>{{FirstName}} {{LastName}}</h1>
+        <h3>Alias: {{Username}}</h3>
+        <a href="/users/logout" class='btn btn-default'>LOG OUT so your friend doesn't post something embarrassing!</a>
+    </div>
+    <div>
+        <h1>Recent Post</h1>
+        <hr> {{#each posts}}
+        <h1>{{PostTitle}}</h1>
+        <h2>Details: {{PostBody}}</h2>
+        <a href="/users/posts/{{PostId}}">
+            <button> Edit Post</button>
+        </a>
+        {{/each}}
+    </div>
+
+    <div>
+        <div>
+            <hr>
+            <h1>Create New Post</h1>
+            <form id="post" name="title" method="POST" action="/users/profile">
+                <div>
+                    <label for="name">UserId: </label>
+                    <input type="text" name="UserId" value="{{UserId}}" readonly="readonly">
+                </div>
+                <div>
+                    <label for="name">Title: </label>
+                    <input type="text" name="postTitle" required>
+                </div>
+                <div>
+                    <label for="name">Body: </label>
+                    <input type="text" name="postBody" required>
+                </div>
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

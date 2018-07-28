@@ -1,0 +1,14 @@
+<table align=“center”>
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th># Moons</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let planet of planets">
+      <td>{{planet.id}}</td>
+      <td>{{planet.name}}</td>
+      <td>{{planet.numberOfMoons}}</td>
+    </tr>
+  </tbody>
+</table>

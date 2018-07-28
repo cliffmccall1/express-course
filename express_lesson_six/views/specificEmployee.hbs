@@ -1,0 +1,52 @@
+<h1>{{EmployeeId}}: {{LastName}}, {{FirstName}}</h1>
+<h4>Title: {{Title}}</h4>
+<h4>Hired: {{HireDate}}</h4>
+<h4>Reports To: {{ReportsTo}}</h4>
+
+<h4>Personal Info:</h4>
+<h4>Birthday: {{BirthDate}}</h4>
+
+<h4>Contact Info:</h4>
+<table border="1">
+    <tr>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Fax</th>
+    </tr>
+    <tr>
+        <td>{{Phone}}</td>
+        <td>{{Email}}</td>
+        <td>{{Fax}}</td>
+    </tr>
+</table>
+<h4>Mailing Info:</h4>
+<table border="1">
+    <tr>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Country</th>
+        <th>Postal Code</th>
+    </tr>
+    <tr>
+        <td>{{Address}}</td>
+        <td>{{City}}</td>
+        <td>{{State}}</td>
+        <td>{{Country}}</td>
+        <td>{{PostalCode}}</td>
+    </tr>
+</table>
+
+
+<script>
+    function onDelete() {
+        $.ajax({
+            url: '/employees/{{EmployeeId}}/delete',
+            method: 'DELETE', complete: () => window.location = "/employees"
+        })
+    }
+</script>
+
+<div>
+    <button onclick="onDelete()" id="deleteButton">Remove Employee</button>
+</div>

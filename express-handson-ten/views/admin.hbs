@@ -1,0 +1,14 @@
+<div class="allUsers">
+    <h1>With Great Power Comes...</h1>
+    <h3>the ability to delete but not edit...</h3>
+    {{#each users}}
+    <a href="/users/editUser/{{UserId}}">
+        <button class="btnAllUsers">
+            {{LastName}}, {{FirstName}}</button>
+        <hr>
+    </a>
+    {{/each}}
+    <a href="/users/logout">
+        <button id="deleteButton">Log out</button>
+    </a>
+</div>

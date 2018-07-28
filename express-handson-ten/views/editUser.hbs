@@ -1,0 +1,42 @@
+<script>
+
+    function onDeleteUser() {
+        $.ajax({
+            url: '/users/editUser/{{UserId}}/delete',
+            method: 'DELETE', complete: () => window.location = "/users/admin"
+        })
+
+    }
+    function onDelete() {
+        $.ajax({
+            url: '{{PostId}}/delete',
+            method: 'DELETE', complete: () => window.location.reload()
+        })
+    }
+</script>
+<div class="login">
+    <h1>{{Username}} Info</h1>
+    <a href="/users/admin">
+        <button>Everything PC? Back to Users</button>
+    </a>
+    <hr>
+    <div class="userInfo">
+        <p> UserId: {{UserId}}
+            <br> Real Name: {{FirstName}} {{LastName}}
+            <br> Contact: {{Email}}
+            <br>
+        </p>
+        <button onclick="onDeleteUser()" id="deleteButton">Delete User</button>
+    </div>
+    <hr>
+    <div>
+        <h1>{{Username}}'s Post</h1>
+        <h3>Delete all the mean things!</h3>
+        <hr> {{#each posts}}
+        <h1>{{PostTitle}}</h1>
+        <h2>Details: {{PostBody}}</h2>
+        <button onclick="onDeletePost()" id="deleteButton">Delete</a>
+            {{/each}}
+
+    </div>
+</div>

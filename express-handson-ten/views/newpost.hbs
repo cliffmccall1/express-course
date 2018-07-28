@@ -1,0 +1,19 @@
+<div class="containerform">
+    <h1>Create Post</h1>
+    <hr>
+
+    <form id="post" name="title" method="POST" action="/users/newpost">
+        <div>
+            <label for="name">Title: </label>
+            <input type="text" name="posttitle" required>
+        </div>
+        <div>
+            <label for="name">Body: </label>
+            <input type="text" name="postbody" required>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+            <button type="cancel">Cancel</button>
+        </div>
+    </form>
+</div>
